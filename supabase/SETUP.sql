@@ -130,3 +130,22 @@ CREATE POLICY "Admins can read notifications"
   FOR SELECT
   TO authenticated
   USING (public.is_admin());
+
+-- ------------------------------------------------------------
+-- 4. Data API grants
+-- ------------------------------------------------------------
+-- Explicit so the schema works whether or not "Automatically expose
+-- new tables" was ticked when the project was created. Row level
+-- security above is what actually restricts access; these grants only
+-- make the tables visible to the API roles.
+GRANT USAGE ON SCHEMA public TO anon, authenticated;
+
+GRANT INSERT ON public.business_inquiries      TO anon, authenticated;
+GRANT INSERT ON public.workshop_registrations  TO anon, authenticated;
+GRANT INSERT ON public.workshop_notifications  TO anon, authenticated;
+
+GRANT SELECT ON public.business_inquiries      TO authenticated;
+GRANT SELECT ON public.workshop_registrations  TO authenticated;
+GRANT SELECT ON public.workshop_notifications  TO authenticated;
+
+-- public.admins is deliberately left ungranted: unreachable via the API.
