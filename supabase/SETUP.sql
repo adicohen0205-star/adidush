@@ -148,4 +148,8 @@ GRANT SELECT ON public.business_inquiries      TO authenticated;
 GRANT SELECT ON public.workshop_registrations  TO authenticated;
 GRANT SELECT ON public.workshop_notifications  TO authenticated;
 
--- public.admins is deliberately left ungranted: unreachable via the API.
+-- public.admins must not be reachable at all. A project created with
+-- "Automatically expose new tables" ticked grants the API roles access
+-- to it by default, so revoke that explicitly. RLS already returns no
+-- rows; this removes the table from the API surface entirely.
+REVOKE ALL ON public.admins FROM anon, authenticated;
