@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import AdminGate from "@/components/AdminGate";
 import {
   Table,
   TableBody,
@@ -26,7 +27,7 @@ interface Registration {
   payment_status: string;
 }
 
-const AdminWorkshopRegistrations = () => {
+const RegistrationsTable = () => {
   const [registrations, setRegistrations] = useState<Registration[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -65,9 +66,7 @@ const AdminWorkshopRegistrations = () => {
   };
 
   return (
-    <div dir="rtl" className="container mx-auto px-4 py-10">
-      <h1 className="text-3xl font-rubik font-bold mb-6">הרשמות לסדנאות</h1>
-
+    <>
       <div className="relative mb-6 max-w-sm">
         <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
         <Input
@@ -118,8 +117,14 @@ const AdminWorkshopRegistrations = () => {
           </Table>
         </div>
       )}
-    </div>
+    </>
   );
 };
+
+const AdminWorkshopRegistrations = () => (
+  <AdminGate title="הרשמות לסדנאות">
+    <RegistrationsTable />
+  </AdminGate>
+);
 
 export default AdminWorkshopRegistrations;
