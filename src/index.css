@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&family=Assistant:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+
+    --primary: 26 11% 49%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 43 33% 96%;
+    --secondary-foreground: 0 0% 7%;
+
+    --muted: 38 33% 88%;
+    --muted-foreground: 0 0% 42%;
+
+    --accent: 30 41% 43%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 38 33% 88%;
+    --input: 33 20% 73%;
+    --ring: 30 41% 43%;
+
+    --radius: 0.75rem;
+
+    --warm: 30 41% 43%;
+    --warm-foreground: 0 0% 100%;
+    --cream: 40 24% 95%;
+    --olive: 30 41% 43%;
+    --bread: 30 46% 34%;
+    --pizza: 30 41% 43%;
+    --gold: 33 40% 63%;
+    --coaching: 82 16% 61%;
+    --card-border: 38 33% 88%;
+    --nav-bg: 40 24% 95%;
+    --hero-bg: 38 38% 95%;
+    --section-alt: 43 33% 96%;
+    --category-active-bg: 42 100% 95%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 7%;
+    --sidebar-primary: 30 41% 43%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 38 33% 88%;
+    --sidebar-accent-foreground: 0 0% 7%;
+    --sidebar-border: 38 33% 88%;
+    --sidebar-ring: 30 41% 43%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 40 25% 90%;
+    --card: 0 0% 8%;
+    --card-foreground: 40 25% 90%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 40 25% 90%;
+    --primary: 30 41% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 20% 15%;
+    --secondary-foreground: 40 25% 90%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 30 41% 50%;
+    --accent-foreground: 0 0% 100%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 30 41% 50%;
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 40 25% 90%;
+    --sidebar-primary: 30 41% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 40 25% 90%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 30 41% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-assistant;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-rubik;
+    font-weight: 800;
+  }
+}
+
+@layer utilities {
+  .text-gradient-warm {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--bread)));
+  }
+  
+  .bg-gradient-warm {
+    background-image: linear-gradient(135deg, hsl(var(--cream)), hsl(var(--secondary)));
+  }
+
+  .bg-gradient-hero {
+    background-image: linear-gradient(180deg, hsl(var(--nav-bg)) 0%, hsl(var(--hero-bg)) 100%);
+  }
+
+  .bg-nav {
+    background-color: hsl(var(--nav-bg));
+  }
+
+  .bg-section-alt {
+    background-color: hsl(var(--section-alt));
+  }
+
+  .bg-warm-section {
+    background-color: hsl(var(--warm));
+  }
+
+  .bg-speckle {
+    background-image: url('/images/speckle-bg.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .bg-recipes-section {
+    background-image: url('/images/recipes-bg.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .bg-newsletter {
+    background-image: url('/images/newsletter-bg.png');
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility: keyboard focus */
+@layer base {
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* Respect user OS-level reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Accessibility widget toggles */
+html.a11y-high-contrast {
+  filter: contrast(1.35);
+}
+html.a11y-high-contrast body {
+  background: #fff;
+  color: #000;
+}
+html.a11y-highlight-links a {
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  outline: 1px dashed hsl(var(--primary));
+  outline-offset: 2px;
+}
+html.a11y-readable-font,
+html.a11y-readable-font body,
+html.a11y-readable-font * {
+  font-family: Arial, Helvetica, sans-serif !important;
+  letter-spacing: 0.01em;
+}
+html.a11y-reduce-motion *,
+html.a11y-reduce-motion *::before,
+html.a11y-reduce-motion *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
