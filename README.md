@@ -1,314 +1,58 @@
-# Adi Cohen's Kitchen
+# Adidush
 
-מעולה. אם עדי כהן היא גם בלוגרית אוכל, גם דיאטנית קלינית, וגם עושה סדנאות וליווי, האתר צריך להעביר את שלושת העולמות יחד:
+Website for Adi Cohen - clinical dietitian, cooking workshops and
+personal nutrition coaching. Hebrew, right to left.
 
-🍞 אוכל ביתי ואותנטי
-🥗 אורח חיים בריא
-👩‍⚕️ ידע מקצועי כדיאטנית
+Standalone rebuild of the original Lovable project, running on Vercel
+with its own Supabase backend.
 
-אני אציע לך מבנה אתר חכם ומלא, כמו שהיו בונים לבלוגרית גדולה.
+## Stack
 
-מבנה אתר מומלץ – Adi Cohen
+- Vite + React 18 + TypeScript
+- Tailwind + shadcn/ui
+- React Router
+- Supabase (Postgres + Auth), row level security on every table
 
-1. עמוד בית (Home)
+## Local development
 
-מטרה: לתת תחושה חמה, מקצועית ומעוררת תיאבון.
-
-אזור ראשון (Hero)
-
-תמונה גדולה של עדי במטבח.
-
-כותרת:
-
-Adi Cohen
-Food Blogger | Clinical Dietitian | Workshop Host
-
-טקסט קצר:
-
-אני מאמינה שאוכל טוב ואורח חיים בריא יכולים לחיות יחד.
-כאן תמצאו מתכונים ביתיים, סדנאות אפייה וחוויות קולינריות – לצד ידע מקצועי מתזונה קלינית.
-
-כפתורים:
-
-מתכונים
-
-סדנאות
-
-ליווי אישי
-
-אזור שני – מה תמצאו באתר
-
-3 כרטיסים:
-
-🥖 מתכונים ביתיים
-מאפים, אוכל ביתי, מתכונים קלים ומיוחדים.
-
-🍕 סדנאות אפייה ובישול
-סדנאות פיצה, לחמים ואוכל שמחבר אנשים.
-
-🥗 ליווי לאורח חיים בריא
-תהליך אישי המשלב תזונה נכונה ואהבה לאוכל.
-
-אזור שלישי – מתכונים אחרונים
-
-גריד של מתכונים:
-
-פיצה ביתית מושלמת
-
-לחם מחמצת
-
-סלט בריא ומהיר
-
-מאפה גבינות
-
-כל אחד עם:
-
-תמונה
-שם מתכון
-כפתור "למתכון"
-
-אזור רביעי – סדנאות
-
-כרטיסים:
-
-🍕 סדנת פיצה
-🥖 סדנת לחמים
-🥗 סדנת בישול בריא
-
-כל אחד כולל:
-
-תיאור קצר
-
-תאריכים
-
-כפתור הרשמה
-
-אזור חמישי – קצת עליי
-
-תמונה של עדי.
-
-טקסט:
-
-אני עדי כהן, דיאטנית קלינית ובלוגרית אוכל.
-במשך שנים אני משלבת בין אהבה גדולה לבישול לבין ידע מקצועי בתזונה.
-אני מאמינה שאוכל צריך להיות גם טעים, גם שמח וגם בריא.
-
-כפתור:
-
-קראו את הסיפור שלי
-
-אזור שישי – המלצות
-
-תגובות ממשתתפים:
-
-⭐️⭐️⭐️⭐️⭐️
-"הסדנת פיצה הייתה מדהימה!"
-
-⭐️⭐️⭐️⭐️⭐️
-"עדי מצליחה לשלב בריאות עם אוכל אמיתי."
-
-אזור שביעי – הרשמה לניוזלטר
-
-כותרת:
-
-רוצים לקבל מתכונים חדשים?
-
-טופס:
-
-שם
-מייל
-
-כפתור:
-
-הרשמה
-
-תפריט האתר (Navbar)
-
-הניווט העליון יהיה:
-
-Home
-About
-Recipes
-Workshops
-1:1 Coaching
-Blog
-Contact
-
-עמוד About – הסיפור שלי
-
-מבנה:
-
-תמונה גדולה.
-
-כותרת:
-
-הסיפור שלי
-
-פסקאות:
-
-איך התחילה האהבה לאוכל
-
-הדרך לדיאטנות קלינית
-
-החיבור בין בריאות לאוכל
-
-קטע נוסף:
-
-מה אני מאמינה בו
-
-✔ אוכל אמיתי
-✔ איזון
-✔ הנאה מאוכל
-
-עמוד Recipes – מתכונים
-
-מערכת מתכונים מלאה.
-
-פילטרים:
-
-פיצה
-
-לחמים
-
-בריא
-
-ארוחות
-
-קינוחים
-
-כל מתכון כולל:
-
-תמונה
-מצרכים
-שלבי הכנה
-טיפים
-
-אפשר גם:
-
-כפתור הדפסה
-כפתור שיתוף
-
-עמוד Workshops – סדנאות
-
-כל סדנה תקבל עמוד.
-
-סדנת פיצה
-
-מה לומדים:
-
-בצק פיצה מושלם
-
-רטבים
-
-אפייה מקצועית
-
-משך הסדנה
-
-מחיר
-
-הרשמה
-
-סדנת לחמים
-
-עבודה עם בצקים
-
-לחמים מיוחדים
-
-טכניקות אפייה
-
-עמוד ליווי אישי (1:1 Coaching)
-
-כותרת:
-
-ליווי אישי לאורח חיים בריא
-
-מה כולל התהליך:
-
-✔ התאמת תפריט אישי
-✔ שינוי הרגלים
-✔ שילוב אוכל אמיתי בחיים
-
-טופס יצירת קשר.
-
-עמוד Blog
-
-מאמרים:
-
-תזונה ואורח חיים
-
-טיפים לאפייה
-
-מתכונים בריאים
-
-מדריכים
-
-עמוד Contact
-
-טופס:
-
-שם
-מייל
-הודעה
-
-וגם:
-
-אינסטגרם
-וואטסאפ
-מייל
-
-פיצ'רים חשובים לאתר
-
-✔ מערכת מתכונים
-✔ הרשמה לסדנאות
-✔ בלוג
-✔ מערכת ליווי אישי
-✔ ניוזלטר
-✔ חיבור לאינסטגרם
-
-עיצוב מומלץ
-
-סגנון:
-
-נקי + חמים + אוכל ביתי.
-
-צבעים:
-
-שמנת
-ירוק זית
-חום לחם
-כתום פיצה
-
-פונטים:
-
-Rubik / Heebo
-
-אם תרצה, אני יכול גם להכין לך:
-
-1️⃣ מוקאפ מקצועי של האתר (כמו אתר אמיתי)
-2️⃣ פרומפט מלא ל-Lovable לבניית האתר
-3️⃣ מבנה מערכת מתכונים מתקדם כמו בבלוגים גדולים
-
-ואפילו להפוך את זה ל־אתר ברמה של בלוגריות אוכל גדולות בעולם.
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://adidush-cohen.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/c733a3a6-c0e0-4e28-835f-33caa0686c44).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+```bash
+npm install
+cp .env.example .env   # then fill in the Supabase values
 npm run dev
 ```
+
+Runs on port 8080 by default.
+
+## Environment
+
+| Variable | Where to find it |
+|---|---|
+| `VITE_SUPABASE_URL` | Supabase → Data API → API URL, without the `/rest/v1/` suffix |
+| `VITE_SUPABASE_PUBLISHABLE_KEY` | Supabase → Settings → API Keys → publishable |
+| `VITE_SUPABASE_PROJECT_ID` | the project ref inside the URL |
+
+The publishable key is safe in the browser. The secret key is never used
+by this app and must not be added to Vercel.
+
+## Pages
+
+`/` `/about` `/coaching` `/recipes` `/workshops` `/workshops/:id`
+`/blog` `/contact`
+
+Admin, behind Supabase Auth: `/admin/inquiries`, `/admin/registrations`.
+
+## Database
+
+[`supabase/SETUP.sql`](supabase/SETUP.sql) builds the whole schema on a
+fresh project. Three public tables collect form submissions; anyone may
+insert, only admins may read. Admin rights come from a row in
+`public.admins`, which is not reachable through the API.
+
+## Deploying
+
+See [`DEPLOY.md`](DEPLOY.md). Pushing to `main` deploys to production.
+
+## History
+
+[`docs/ORIGINAL_BRIEF.md`](docs/ORIGINAL_BRIEF.md) is the original
+site brief the first version was generated from.
